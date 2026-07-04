@@ -1244,7 +1244,6 @@ footer {
         gap: 1rem;
     }
 
-
     /* Related posts responsive */
     .related-grid {
         grid-template-columns: 1fr;
