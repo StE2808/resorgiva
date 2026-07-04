@@ -13,7 +13,7 @@
   # Group condiviso con convert-webp.yml: serializza i due workflow per evitare
   # la race condition sul git push (entrambi committano sul main toccando i post).
   concurrency:
-    group: "rossodisera-publish"
+    group: "resorgiva-publish"
     cancel-in-progress: false
 
   jobs:
