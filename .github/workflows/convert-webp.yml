@@ -130,6 +130,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          shopt -s nullglob
           git add -A assets/images/uploads/
           git add _posts/*.md
           if git diff --staged --quiet; then
