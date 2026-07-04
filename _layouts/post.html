@@ -132,3 +132,31 @@ layout: default
     </section>
     {% endif %}
 </article>
+
+<!-- Livello di lettura: la colonnina d'acqua che sale mentre leggi -->
+<div class="gauge" aria-hidden="true">
+    <div class="tubo"><div class="livello"></div></div>
+    <span class="etichetta">Livello di lettura</span>
+</div>
+<script>
+(function () {
+    var art = document.querySelector('.post-single');
+    var gauge = document.querySelector('.gauge');
+    var livello = document.querySelector('.gauge .livello');
+    if (!art || !gauge || !livello) return;
+
+    function aggiorna() {
+        var r = art.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var visibile = r.top < vh && r.bottom > 0;
+        gauge.classList.toggle('attivo', visibile);
+        if (!visibile) return;
+        var totale = r.height - vh;
+        var perc = totale > 0 ? Math.min(1, Math.max(0, -r.top / totale)) : 1;
+        livello.style.height = (perc * 100).toFixed(1) + '%';
+    }
+    window.addEventListener('scroll', aggiorna, { passive: true });
+    window.addEventListener('resize', aggiorna);
+    aggiorna();
+})();
+</script>
