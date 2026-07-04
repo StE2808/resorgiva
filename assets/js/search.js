@@ -38,7 +38,7 @@
     return slice;
   }
 
-  var authors = { 'stefano-vozzi': 'Stefano Vozzi', 'lino-rialti': 'Lino Rialti' };
+  var authors = { 'autrice-1': 'Autrice 1 (da assegnare)', 'autrice-2': 'Autrice 2 (da assegnare)', 'autrice-3': 'Autrice 3 (da assegnare)', 'autrice-4': 'Autrice 4 (da assegnare)', 'autrice-5': 'Autrice 5 (da assegnare)' };
 
   function render(results, terms) {
     if (!results.length) {
