@@ -25,23 +25,11 @@ layout: default
             <div class="article-content">
                 <div class="article-meta">
                     <div class="article-author">
+                        {% assign card_author = site.authors | where: "slug", post.author | first %}
                         <div class="author-avatar">
-                            {% if post.author == "stefano-vozzi" %}
-                              SV
-                            {% elsif post.author == "lino-rialti" %}
-                              LR
-                            {% else %}
-                              {% assign author_initials = post.author | slice: 0, 2 | upcase %}
-                              {{ author_initials }}
-                            {% endif %}
+                            {{ card_author.name | default: post.author | slice: 0, 2 | upcase }}
                         </div>
-                        {% if post.author == "stefano-vozzi" %}
-                          <span>Stefano Vozzi</span>
-                        {% elsif post.author == "lino-rialti" %}
-                          <span>Lino Rialti</span>
-                        {% else %}
-                          <span>{{ post.author | replace: "-", " " | capitalize }}</span>
-                        {% endif %}
+                        <span>{{ card_author.name | default: post.author | replace: "-", " " | capitalize }}</span>
                     </div>
                     <span>•</span>
                     <span>{{ post.date | date: "%d %B %Y" }}</span>

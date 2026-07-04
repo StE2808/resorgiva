@@ -22,15 +22,15 @@ layout: default
   "image": {% if page.image %}"{{ page.image | absolute_url }}"{% else %}null{% endif %},
   "author": {
     "@type": "Person",
-    "name": {% if page.author == "stefano-vozzi" %}"Stefano Vozzi"{% elsif page.author == "lino-rialti" %}"Lino Rialti"{% else %}{{ page.author | replace: "-", " " | capitalize | jsonify }}{% endif %}
+    "name": {% assign post_author = site.authors | where: "slug", page.author | first %}{{ post_author.name | default: page.author | jsonify }}
   },
   "keywords": "{{ page.focus_keyword | default: page.category }}",
   "publisher": {
     "@type": "Organization",
-    "name": "Rosso di Sera",
+    "name": "Resorgiva",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ '/assets/images/logo_trasparenza.png' | absolute_url }}"
+      "url": "{{ '/assets/images/logo.png' | absolute_url }}"
     }
   },
   "datePublished": "{{ page.date | date_to_xmlschema }}",
@@ -48,23 +48,11 @@ layout: default
         <h1 class="post-title">{{ page.title }}</h1>
         <div class="post-meta">
             <div class="post-author">
+                {% assign post_author = site.authors | where: "slug", page.author | first %}
                 <div class="author-avatar">
-                    {% if page.author == "stefano-vozzi" %}
-                      SV
-                    {% elsif page.author == "lino-rialti" %}
-                      LR
-                    {% else %}
-                      {% assign author_initials = page.author | slice: 0, 2 | upcase %}
-                      {{ author_initials }}
-                    {% endif %}
+                    {{ post_author.name | default: page.author | slice: 0, 2 | upcase }}
                 </div>
-                {% if page.author == "stefano-vozzi" %}
-                  <span>Stefano Vozzi</span>
-                {% elsif page.author == "lino-rialti" %}
-                  <span>Lino Rialti</span>
-                {% else %}
-                  <span>{{ page.author | replace: "-", " " | capitalize }}</span>
-                {% endif %}
+                <span>{{ post_author.name | default: page.author | replace: "-", " " | capitalize }}</span>
             </div>
             <span class="meta-separator">•</span>
             <span class="post-date">{{ page.date | date: "%d %B %Y" }}</span>
@@ -103,19 +91,7 @@ layout: default
     </footer>
     {% endif %}
 
-    <!-- Sezione Commenti (self-hosted Cloudflare) -->
-    <section class="post-comments rds-comments">
-        <h3 class="comments-title">Commenti</h3>
-        <div id="rds-comments">
-            <div class="rds-reactions"></div>
-            <div class="rds-newform"></div>
-            <div class="rds-list"></div>
-        </div>
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-        <script src="{{ '/assets/js/comments.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-    </section>
-
-    <!-- Navigazione articoli (dopo i commenti) -->
+    <!-- Navigazione articoli -->
     <nav class="post-navigation">
         {% if page.previous.url %}
         <a href="{{ page.previous.url | relative_url }}" class="nav-prev">
