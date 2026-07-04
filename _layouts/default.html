@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if effective_title %}{{ effective_title }} | {% endif %}Resorgiva</title>
 
-    <!-- SEO (jekyll-seo-tag genera anche og:title/og:image dal fallback sitewide: niente meta manuali duplicati) -->
+    <!-- SEO (jekyll-seo-tag genera og:title/og:image da page["image"], impostato di default per ogni pagina in _config.yml > defaults: niente meta manuali duplicati) -->
     {% seo title=false %}
 
     {% if page.image_alt %}

@@ -5,9 +5,6 @@ description: "Blog di benessere quotidiano: idratazione, alimentazione, moviment
 url: "https://ste2808.github.io"
 baseurl: ""
 
-# Fallback sitewide per og:image (fix bug: prima assente)
-image: "/assets/images/social-default.png"
-
 # Author principale (per SEO)
 author:
   name: "Redazione Resorgiva"
@@ -55,6 +52,12 @@ feed:
 
 # Defaults
 defaults:
+  # jekyll-seo-tag legge SOLO page["image"] (front matter), non ha un fallback sitewide
+  # in _config.yml: questo default lo simula per ogni pagina che non imposta un'immagine propria.
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/social-default.png"
   - scope:
       path: ""
       type: "posts"
