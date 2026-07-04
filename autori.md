@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Autori
+title: Autrici
 permalink: /autori/
 ---
 

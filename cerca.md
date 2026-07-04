@@ -2,7 +2,7 @@
 layout: default
 title: Cerca
 permalink: /cerca/
-description: "Cerca tra tutti gli articoli di Rosso di Sera per parola chiave, autore o tema."
+description: "Cerca tra tutti gli articoli di Resorgiva per parola chiave, autore o tema."
 sitemap: false
 ---
 
