@@ -1,21 +1,26 @@
-# Robots.txt per Rosso di Sera
-# https://rossodiserablog.it
+# Robots.txt per Resorgiva
+# https://ste2808.github.io/resorgiva
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://rossodiserablog.it/sitemap.xml
+Sitemap: https://ste2808.github.io/resorgiva/sitemap.xml
 
 # Blocca accesso al pannello admin
 Disallow: /admin/
-Disallow: /guida-autori/
-Disallow: /terrata/
+
+# Bot AI di addestramento — bloccati
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
 
 # Bot di citazione AI (ricerca e risposta) — consentiti
-# Questi bot permettono al sito di essere citato da ChatGPT, Perplexity, ecc.
-# NON usano i contenuti per addestrare modelli
-
 User-agent: PerplexityBot
 Allow: /
 
@@ -23,10 +28,4 @@ User-agent: ChatGPT-User
 Allow: /
 
 User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-User-agent: Applebot
 Allow: /

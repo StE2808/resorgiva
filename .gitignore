@@ -4,15 +4,11 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
-# Node.js / Tina CMS
+# Node.js
 node_modules/
 package-lock.json
 .env
 .env.local
-
-# Tina generated files
-.tina/__generated__/
-admin/index.html
 
 # macOS
 .DS_Store
@@ -23,26 +19,11 @@ admin/index.html
 *.swp
 *.swo
 
-# Dev files (scripts, reports, etc.)
+# Dev files locali
 _dev/
 *_report.json
-
-# Script locali (non committare)
 _local/
 
-# Claude Code documentation (internal only — anche in global gitignore)
+# Claude Code documentation (interno)
 CLAUDE.md
-
-# Note di lavoro interne (non pubblicare)
-workflow_rossodisera.md
-
-# Graphify — knowledge graph locale (non pubblicare)
-graphify-out/
-.graphifyignore
-
-# Dashboard — snapshot dati Search Console (non pubblicare)
-dashboard/gsc_snapshot.json
-# Dashboard — versione pubblicata e script di deploy/lettura (path nascosto, host, logica VPS)
-dashboard/publish/
-dashboard/*.sh
 .superpowers/

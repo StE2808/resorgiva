@@ -1,24 +1,26 @@
-# Configurazione Rosso di Sera Blog
-title: "Rosso di Sera"
-tagline: "Una luce nel mondo digitale"
-description: "Blog di riflessioni, cultura e tecnologia. Esploriamo insieme il mondo digitale con uno sguardo critico e appassionato."
-url: "https://rossodiserablog.it"
+# Configurazione Resorgiva
+title: "Resorgiva"
+tagline: "Il benessere nasce alla sorgente."
+description: "Blog di benessere quotidiano: idratazione, alimentazione, movimento, mente e lifestyle. Piccole abitudini concrete, spiegate da amiche esperte."
+url: "https://ste2808.github.io"
 baseurl: ""
+
+# Fallback sitewide per og:image (fix bug: prima assente)
+image: "/assets/images/social-default.png"
 
 # Author principale (per SEO)
 author:
-  name: "Lino Rialti & Stefano Vozzi"
+  name: "Redazione Resorgiva"
   email: "s.vozzi@gmail.com"
-  twitter: "@rossodiserablog"
 
 # Logo per Schema.org
-logo: "/assets/images/logo_trasparenza.png"
+logo: "/assets/images/logo.png"
 
 # Social profiles
 social:
-  name: "Rosso di Sera"
+  name: "Resorgiva"
   links:
-    - https://github.com/StE2808/rossodiserablog
+    - https://github.com/StE2808/resorgiva
 
 # Impostazioni SEO
 lang: it_IT
@@ -70,10 +72,6 @@ defaults:
       path: "admin"
     values:
       sitemap: false
-  - scope:
-      path: "terrata"
-    values:
-      sitemap: false
 
 # Esclusioni
 exclude:
@@ -85,6 +83,4 @@ exclude:
   - vendor
   - .sass-cache
   - .jekyll-cache
-  - _dev
-  - _docs
-  - comments-worker
+  - docs
