@@ -1,0 +1,90 @@
+# Configurazione Rosso di Sera Blog
+title: "Rosso di Sera"
+tagline: "Una luce nel mondo digitale"
+description: "Blog di riflessioni, cultura e tecnologia. Esploriamo insieme il mondo digitale con uno sguardo critico e appassionato."
+url: "https://rossodiserablog.it"
+baseurl: ""
+
+# Author principale (per SEO)
+author:
+  name: "Lino Rialti & Stefano Vozzi"
+  email: "s.vozzi@gmail.com"
+  twitter: "@rossodiserablog"
+
+# Logo per Schema.org
+logo: "/assets/images/logo_trasparenza.png"
+
+# Social profiles
+social:
+  name: "Rosso di Sera"
+  links:
+    - https://github.com/StE2808/rossodiserablog
+
+# Impostazioni SEO
+lang: it_IT
+timezone: Europe/Rome
+
+# Autori
+collections:
+  authors:
+    output: true
+
+# Build settings
+markdown: kramdown
+encoding: utf-8
+permalink: /:title/
+
+# Paginazione
+paginate: 12
+paginate_path: "/pagina/:num/"
+
+# Plugin
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Feed RSS
+feed:
+  path: feed.xml
+  excerpt_only: false
+  posts_limit: 250
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      sitemap: true
+      description: ""
+      image_alt: ""
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: "admin"
+    values:
+      sitemap: false
+  - scope:
+      path: "terrata"
+    values:
+      sitemap: false
+
+# Esclusioni
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - _dev
+  - _docs
+  - comments-worker

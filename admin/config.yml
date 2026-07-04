@@ -1,0 +1,144 @@
+backend:
+  name: github
+  repo: StE2808/rossodiserablog
+  branch: main
+  base_url: https://sveltia-cms-auth.s-vozzi.workers.dev
+
+publish_mode: editorial_workflow
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+locale: 'it'
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "posts"
+    label: "Articoli"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "post"
+      - label: "Titolo"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "Titolo editoriale dell'articolo. Può essere creativo."
+      - label: "Titolo SEO (opzionale)"
+        name: "seo_title"
+        widget: "string"
+        required: false
+        hint: "Max 60 caratteri. Se vuoto, usa il titolo normale. Scrivi quello che l'utente cercherebbe su Google."
+      - label: "Meta Description"
+        name: "description"
+        widget: "text"
+        required: false
+        hint: "120-155 caratteri. Riassumi l'articolo con una frase che invogli al click. Includi la parola chiave principale."
+      - label: "Data pubblicazione"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD HH:mm:ss ZZ"
+        required: true
+      - label: "Autore"
+        name: "author"
+        widget: "select"
+        options:
+          - { label: "Lino Rialti", value: "lino-rialti" }
+          - { label: "Stefano Vozzi", value: "stefano-vozzi" }
+        required: true
+      - label: "Categoria"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Politica Interna", value: "politica-interna" }
+          - { label: "Politica Estera", value: "politica-estera" }
+          - { label: "Cronaca Bianca", value: "cronaca-bianca" }
+          - { label: "Cronaca Nera", value: "cronaca-nera" }
+          - { label: "Cronaca Rosa", value: "cronaca-rosa" }
+          - { label: "Cronaca Giudiziaria", value: "cronaca-giudiziaria" }
+          - { label: "Economia e Finanza", value: "economia-finanza" }
+          - { label: "Cultura e Spettacolo", value: "cultura-spettacolo" }
+          - { label: "Scienza e Tecnologia", value: "scienza-tecnologia" }
+          - { label: "Lifestyle e Moda", value: "lifestyle-moda" }
+          - { label: "Opinioni ed Editoriali", value: "opinioni-editoriali" }
+          - { label: "Inchieste e Dossier", value: "inchieste-dossier" }
+          - { label: "Società", value: "societa" }
+          - { label: "Ambiente", value: "ambiente" }
+          - { label: "Diritti Umani", value: "diritti-umani" }
+        required: true
+      - label: "Tag"
+        name: "tags"
+        widget: "list"
+        required: false
+      - label: "Immagine copertina"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Immagine principale. Dimensioni ideali: 1200x630px per social sharing."
+      - label: "Didascalia immagine"
+        name: "image_caption"
+        widget: "string"
+        required: false
+        hint: "Testo che appare sotto l'immagine (opzionale)"
+      - label: "Alt Text Immagine"
+        name: "image_alt"
+        widget: "string"
+        required: false
+        hint: "Descrivi l'immagine per non vedenti e motori di ricerca. Non ripetere il titolo, descrivi cosa si VEDE."
+      - label: "Sunto"
+        name: "excerpt"
+        widget: "text"
+        required: true
+        hint: "Anteprima che appare nelle card del sito e nel feed RSS. Può essere più lungo della Meta Description."
+      - label: "Parola Chiave Principale (promemoria)"
+        name: "focus_keyword"
+        widget: "string"
+        required: false
+        hint: "Per quale ricerca vuoi posizionarti? Usala in: titolo SEO, description, primo paragrafo, almeno un H2."
+      - label: "Contenuto"
+        name: "body"
+        widget: "markdown"
+        required: true
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - heading-four
+          - quote
+          - bulleted-list
+          - numbered-list
+          - code
+          - code-block
+
+  - name: "authors"
+    label: "Autori"
+    folder: "_authors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Nome completo"
+        name: "name"
+        widget: "string"
+        required: true
+      - label: "Username"
+        name: "username"
+        widget: "string"
+        required: true
+      - label: "Bio"
+        name: "bio"
+        widget: "text"
+        required: false
+      - label: "Immagine profilo"
+        name: "avatar"
+        widget: "image"
+        required: false
