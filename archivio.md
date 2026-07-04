@@ -42,13 +42,8 @@ permalink: /archivio/
                             <div class="archive-card-meta">
                                 <span class="related-date">{{ post.date | date: "%d %B %Y" }}</span>
                                 <span class="archive-author">
-                                    {% if post.author == "stefano-vozzi" %}
-                                        Stefano Vozzi
-                                    {% elsif post.author == "lino-rialti" %}
-                                        Lino Rialti
-                                    {% else %}
-                                        {{ post.author | replace: "-", " " | capitalize }}
-                                    {% endif %}
+                                    {% assign entry_author = site.authors | where: "slug", post.author | first %}
+                                    {{ entry_author.name | default: post.author | replace: "-", " " | capitalize }}
                                 </span>
                             </div>
                         </div>

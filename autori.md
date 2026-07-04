@@ -4,7 +4,7 @@ title: Autrici
 permalink: /autori/
 ---
 
-<h1 class="page-title">Gli Autori</h1>
+<h1 class="page-title">Le Autrici</h1>
 
 <div class="authors-grid">
 {% for author in site.authors %}
