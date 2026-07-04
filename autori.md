@@ -10,12 +10,12 @@ permalink: /autori/
 {% for author in site.authors %}
     <div class="author-card">
         <h2>{{ author.name }}</h2>
-        <p class="author-role">{{ author.position }}</p>
-        <p>{{ author.content }}</p>
-        
-        {% assign author_posts = site.posts | where: "author", author.short_name %}
+        <p class="author-role">{{ author.pillar | capitalize }}</p>
+        <p>{{ author.bio }}</p>
+
+        {% assign author_posts = site.posts | where: "author", author.slug %}
         <p class="author-stats">{{ author_posts.size }} articoli pubblicati</p>
-        
+
         <h3>Ultimi articoli:</h3>
         <ul>
         {% for post in author_posts limit: 5 %}
@@ -28,8 +28,8 @@ permalink: /autori/
 
 <style>
 .page-title {
-    font-family: 'Playfair Display', serif;
-    color: #8b1a1a;
+    font-family: 'Marcellus', serif;
+    color: var(--teal-primario);
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -48,29 +48,29 @@ permalink: /autori/
 }
 
 .author-card h2 {
-    font-family: 'Playfair Display', serif;
-    color: #8b1a1a;
+    font-family: 'Marcellus', serif;
+    color: var(--teal-primario);
     margin-bottom: 0.5rem;
 }
 
 .author-role {
-    color: #6b1414;
+    color: var(--salvia-accent);
     font-style: italic;
     margin-bottom: 1rem;
 }
 
 .author-stats {
-    background: #f5ede4;
+    background: var(--sabbia);
     padding: 0.5rem 1rem;
     border-radius: 4px;
     display: inline-block;
     margin: 1rem 0;
     font-weight: 600;
-    color: #6b1414;
+    color: var(--teal-primario);
 }
 
 .author-card h3 {
-    color: #333;
+    color: var(--inchiostro);
     font-size: 1rem;
     margin: 1.5rem 0 0.5rem;
 }
@@ -84,11 +84,11 @@ permalink: /autori/
 }
 
 .author-card a {
-    color: #333;
+    color: var(--inchiostro);
     text-decoration: none;
 }
 
 .author-card a:hover {
-    color: #8b1a1a;
+    color: var(--teal-primario);
 }
 </style>

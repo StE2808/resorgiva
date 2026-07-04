@@ -26,7 +26,7 @@ timezone: Europe/Rome
 # Autori
 collections:
   authors:
-    output: true
+    output: false
 
 # Build settings
 markdown: kramdown
@@ -66,11 +66,6 @@ defaults:
       sitemap: true
       description: ""
       image_alt: ""
-  - scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
   - scope:
       path: "admin"
     values:

@@ -1,4 +1,4 @@
-/* Ricerca full-text client-side per Rosso di Sera (MiniSearch, self-hosted).
+/* Ricerca full-text client-side per Resorgiva (MiniSearch, self-hosted).
    Carica /search-index.json una volta, costruisce l'indice in-browser e cerca live.
    Nessun backend: gira interamente nel browser sulla pagina /cerca/. */
 (function () {
