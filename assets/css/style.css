@@ -1747,21 +1747,52 @@ footer {
     color: var(--acqua-chiara);
 }
 
-/* ---- la risalita: dal buio alla carta ---- */
+/* ---- la risalita: dal buio alla carta, onde in movimento ---- */
 .risalita {
-    height: 150px;
+    height: 170px;
     position: relative;
+    overflow: hidden;
     background: linear-gradient(to bottom, var(--falda) 0%, var(--falda-2) 30%, var(--sabbia) 100%);
 }
 
-.risalita svg {
+.risalita .onde {
     position: absolute;
     left: 0;
     right: 0;
-    top: 40%;
+    top: 30%;
     width: 100%;
-    height: 34px;
-    opacity: 0.5;
+    height: 70px;
+    display: block;
+}
+
+/* i path coprono 4800 unità su viewBox 2400: traslando di -2400 il loop è perfetto */
+.onda-g {
+    animation: ondeggia 26s linear infinite;
+}
+
+.onda-g.veloce {
+    animation-duration: 15s;
+}
+
+.onda-piena {
+    fill: var(--acqua-chiara);
+    opacity: 0.18;
+}
+
+.onda-linea {
+    fill: none;
+    stroke: var(--acqua-chiara);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    opacity: 0.65;
+}
+
+@keyframes ondeggia {
+    to { transform: translateX(-2400px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .onda-g { animation: none; }
 }
 
 /* ---- il sommario tipografico ---- */

@@ -55,11 +55,17 @@ layout: default
     </div>
 </section>
 
-<!-- la risalita: dal buio della falda alla carta -->
+<!-- la risalita: dal buio della falda alla carta, con le onde che scorrono -->
 <div class="risalita" aria-hidden="true">
-    <svg viewBox="0 0 2400 34" preserveAspectRatio="none">
-        <path d="M0,17 C100,7 200,27 300,17 C400,7 500,27 600,17 C700,7 800,27 900,17 C1000,7 1100,27 1200,17 C1300,7 1400,27 1500,17 C1600,7 1700,27 1800,17 C1900,7 2000,27 2100,17 C2200,7 2300,27 2400,17"
-              fill="none" stroke="#B8E1DD" stroke-width="1.4"/>
+    <svg class="onde" viewBox="0 0 2400 70" preserveAspectRatio="none">
+        <!-- ogni path copre 4800 unità (due viewBox): l'animazione trasla di -2400
+             e il loop riparte identico. Periodo dell'onda 600, divisore di 2400. -->
+        <g class="onda-g">
+            <path class="onda-piena" d="M0,36 c100,-28 200,-28 300,0 c100,28 200,28 300,0 c100,-28 200,-28 300,0 c100,28 200,28 300,0 c100,-28 200,-28 300,0 c100,28 200,28 300,0 c100,-28 200,-28 300,0 c100,28 200,28 300,0 c100,-28 200,-28 300,0 c100,28 200,28 300,0 c100,-28 200,-28 300,0 c100,28 200,28 300,0 c100,-28 200,-28 300,0 c100,28 200,28 300,0 c100,-28 200,-28 300,0 c100,28 200,28 300,0 L4800,70 L0,70 Z"/>
+        </g>
+        <g class="onda-g veloce">
+            <path class="onda-linea" d="M0,40 c100,22 200,22 300,0 c100,-22 200,-22 300,0 c100,22 200,22 300,0 c100,-22 200,-22 300,0 c100,22 200,22 300,0 c100,-22 200,-22 300,0 c100,22 200,22 300,0 c100,-22 200,-22 300,0 c100,22 200,22 300,0 c100,-22 200,-22 300,0 c100,22 200,22 300,0 c100,-22 200,-22 300,0 c100,22 200,22 300,0 c100,-22 200,-22 300,0 c100,22 200,22 300,0 c100,-22 200,-22 300,0"/>
+        </g>
     </svg>
 </div>
 
