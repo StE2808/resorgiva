@@ -1765,34 +1765,50 @@ footer {
     display: block;
 }
 
-/* i path coprono 4800 unità su viewBox 2400: traslando di -2400 il loop è perfetto */
-.onda-g {
-    animation: ondeggia 26s linear infinite;
+/* tre strati di mare: deriva orizzontale a velocità diverse (path da 4800 unità
+   su viewBox 2400, traslazione -2400 = loop perfetto) + beccheggio verticale
+   sfasato. transform separati su g annidati: deriva fuori, bob dentro. */
+.deriva {
+    animation: deriva 34s linear infinite;
 }
 
-.onda-g.veloce {
-    animation-duration: 15s;
+.deriva.media {
+    animation-duration: 21s;
 }
 
-.onda-piena {
-    fill: var(--acqua-chiara);
-    opacity: 0.18;
+.deriva.rapida {
+    animation-duration: 13s;
 }
 
-.onda-linea {
-    fill: none;
-    stroke: var(--acqua-chiara);
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    opacity: 0.65;
-}
-
-@keyframes ondeggia {
+@keyframes deriva {
     to { transform: translateX(-2400px); }
 }
 
+.bob {
+    animation: bob 7s ease-in-out infinite;
+}
+
+.bob.b2 {
+    animation-duration: 5.2s;
+    animation-delay: -1.7s;
+}
+
+.bob.b3 {
+    animation-duration: 6.1s;
+    animation-delay: -3.1s;
+}
+
+@keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+.onda-1 { fill: var(--acqua-chiara); opacity: 0.14; }
+.onda-2 { fill: var(--acqua-chiara); opacity: 0.22; }
+.onda-3 { fill: var(--acqua-chiara); opacity: 0.34; }
+
 @media (prefers-reduced-motion: reduce) {
-    .onda-g { animation: none; }
+    .deriva, .bob { animation: none; }
 }
 
 /* ---- il sommario tipografico ---- */
