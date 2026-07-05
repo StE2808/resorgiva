@@ -1,16 +1,13 @@
 # Robots.txt per Resorgiva
-# https://ste2808.github.io/resorgiva
-#
-# ATTENZIONE: i crawler leggono solo il robots.txt alla ROOT del dominio
-# (https://ste2808.github.io/robots.txt, repo StE2808/ste2808.github.io).
-# Questo file, servito a /resorgiva/robots.txt, è di fatto ignorato: le regole
-# vere vanno mantenute nel repo user-site. Qui resta come documentazione.
+# https://resorgiva.it
+# Dal 2026-07-05 (dominio custom) questo file è servito alla ROOT del dominio:
+# è il robots.txt operativo.
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ste2808.github.io/resorgiva/sitemap.xml
+Sitemap: https://resorgiva.it/sitemap.xml
 
 # Blocca accesso al pannello admin
 Disallow: /admin/
