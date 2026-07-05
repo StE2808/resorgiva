@@ -72,18 +72,6 @@ body.menu-open {
     z-index: 1001;
 }
 
-.navbar-logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.navbar:hover .navbar-logo {
-    transform: rotate(-10deg) scale(1.05);
-}
-
 .navbar-title {
     font-family: 'Marcellus', serif;
     font-size: 2.2rem;
@@ -1171,11 +1159,6 @@ footer {
 
     .navbar-title {
         font-size: 1.5rem;
-    }
-
-    .navbar-logo {
-        width: 60px;
-        height: 60px;
     }
 
     .articles-grid {
