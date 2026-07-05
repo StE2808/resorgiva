@@ -33,13 +33,10 @@ markdown: kramdown
 encoding: utf-8
 permalink: /:title/
 
-# Paginazione
-paginate: 12
-paginate_path: "/pagina/:num/"
-
 # Plugin
+# (niente jekyll-paginate: la home mostra gli ultimi post e rimanda all'archivio;
+# con paginate attivo il plugin genererebbe /pagina/2/... duplicati della home)
 plugins:
-  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
@@ -58,14 +55,15 @@ defaults:
       path: ""
     values:
       image: "/assets/images/social-default.png"
+  # NB: niente default vuoti tipo description: "" o image_alt: "" — una stringa
+  # vuota è truthy per jekyll-seo-tag/Liquid e spegne i fallback (excerpt come
+  # meta description, titolo come og:image:alt)
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
       sitemap: true
-      description: ""
-      image_alt: ""
   - scope:
       path: "admin"
     values:
@@ -82,3 +80,4 @@ exclude:
   - .sass-cache
   - .jekyll-cache
   - docs
+  - scripts   # script di manutenzione: senza exclude finivano pubblicati sul sito

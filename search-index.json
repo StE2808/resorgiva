@@ -13,6 +13,8 @@ sitemap: false
     "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
     "dateh": {{ post.date | date: "%-d %B %Y" | jsonify }},
     "author": {{ post.author | default: "" | jsonify }},
+    {% assign idx_author = site.authors | where: "slug", post.author | first %}
+    "author_name": {{ idx_author.name | default: post.author | default: "" | jsonify }},
     "category": {{ post.category | default: "" | jsonify }},
     "tags": {{ post.tags | join: " " | jsonify }},
     "excerpt": {{ post.excerpt | strip_html | normalize_whitespace | jsonify }},

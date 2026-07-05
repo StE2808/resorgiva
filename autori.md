@@ -36,7 +36,8 @@ permalink: /autori/
 
 .authors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /* min(100%, 400px): sotto i 400px di viewport la colonna si stringe invece di sbordare */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
     gap: 2rem;
 }
 

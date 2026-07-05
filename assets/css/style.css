@@ -1558,7 +1558,14 @@ footer {
 .search-section {
     max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 4rem;
+    /* 8rem sopra come le altre pagine: con meno, il titolo finiva sotto la navbar fissa */
+    padding: 8rem 1.5rem 4rem;
+}
+
+@media (max-width: 768px) {
+    .search-section {
+        padding-top: 6rem;
+    }
 }
 .navbar-search-link {
     display: inline-flex;

@@ -1,5 +1,10 @@
 # Robots.txt per Resorgiva
 # https://ste2808.github.io/resorgiva
+#
+# ATTENZIONE: i crawler leggono solo il robots.txt alla ROOT del dominio
+# (https://ste2808.github.io/robots.txt, repo StE2808/ste2808.github.io).
+# Questo file, servito a /resorgiva/robots.txt, è di fatto ignorato: le regole
+# vere vanno mantenute nel repo user-site. Qui resta come documentazione.
 
 User-agent: *
 Allow: /

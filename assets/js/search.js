@@ -38,8 +38,6 @@
     return slice;
   }
 
-  var authors = { 'autrice-1': 'Autrice 1 (da assegnare)', 'autrice-2': 'Autrice 2 (da assegnare)', 'autrice-3': 'Autrice 3 (da assegnare)', 'autrice-4': 'Autrice 4 (da assegnare)', 'autrice-5': 'Autrice 5 (da assegnare)' };
-
   function render(results, terms) {
     if (!results.length) {
       resultsEl.innerHTML = '';
@@ -49,7 +47,8 @@
     statusEl.textContent = results.length + (results.length === 1 ? ' risultato' : ' risultati');
     var html = results.slice(0, 40).map(function (r) {
       var d = docsById[r.id];
-      var author = authors[d.author] || '';
+      // il nome arriva dall'indice (search-index.json lo risolve da _authors/)
+      var author = d.author_name || d.author || '';
       var cat = d.category ? d.category.replace(/-/g, ' ') : '';
       var meta = [d.dateh, author, cat].filter(Boolean).join(' · ');
       return '<article class="search-result">' +
